@@ -65,16 +65,16 @@
             # so the old configuration file still takes effect
             ./hosts/home-server/configuration.nix
             lix-module.nixosModules.default
+            extra-container.nixosModules.default
             agenix.nixosModules.default
           ] ++ map (user: ./users/${user}/nixos.nix) users;
         };
-    } // {
-      packages.default = extra-container.lib.buildContainers {
-        # The system of the container host
-        system = "x86_64-linux";
+    };
+    packages.x86_64-linux.default = extra-container.lib.buildContainers {
+      # The system of the container host
+      system = "x86_64-linux";
 
-        config = import ./containers/blahaj-bot.nix { agenix = inputs.agenix; blahaj-bot = inputs.blahaj-bot; };
-      };
+      config = import ./containers/blahaj-bot.nix { agenix = inputs.agenix; blahaj-bot = inputs.blahaj-bot; };
     };
   };
 }

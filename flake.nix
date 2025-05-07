@@ -61,23 +61,6 @@
             agenix.nixosModules.default
           ] ++ map (user: ./users/${user}/nixos.nix) users;
         };
-
-      blahaj-bot = nixpkgs.lib.nixosSystem rec {
-        system = "x86_64-linux";
-
-        specialArgs = { inherit inputs; };
-
-        modules = [
-          ./containers/blahaj-bot.nix
-          agenix.nixosModules.default
-          blahaj-bot.nixosModules.${system}.default
-          ({ pkgs, ... }: {
-            nixpkgs.overlays = [
-              blahaj-bot.overlays.${system}.default
-            ];
-          })
-        ];
-      };
     };
   };
 }

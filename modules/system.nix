@@ -61,13 +61,5 @@
   systemd.targets.hybrid-sleep.enable = false;
 
   # Blahaj-bot
-  #import ../containers/blahaj-bot.nix { agenix = inputs.agenix; blahaj-bot = inputs.blaha-bot; };
-  #  age.secrets.blahaj-bot-token.file = ../secrets/blahaj-bot-token.age;
-  # services.blahaj-bot = {
-  #   enable = true;
-  #   token = config.age.secrets.blahaj-bot-token.path;
-  # };
-  #
-  #
-
+  # import ../containers/blahaj-bot.nix { agenix = inputs.agenix; blahaj-bot = inputs.blaha-bot; };
 }

@@ -75,6 +75,6 @@
 
         config = import ./containers/blahaj-bot.nix { agenix = inputs.agenix; blahaj-bot = inputs.blahaj-bot; };
       };
-    }
+    };
   };
 }

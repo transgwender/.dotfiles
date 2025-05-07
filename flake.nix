@@ -17,6 +17,11 @@
       inputs.flake-utils.follows = "flake-utils";
       inputs.lix.follows = "lix";
     };
+
+    extra-container = {
+      url = "github:erikarvstedt/extra-container";
+      inputs.nixpkgs.follows = "nixpkgs";
+    };
     
     # Agenix secret manager
     agenix = {
@@ -38,6 +43,7 @@
       flake-utils,
       lix-module,
       lix,
+      extra-container,
       agenix,
       blahaj-bot,
       ...
@@ -61,6 +67,12 @@
             agenix.nixosModules.default
           ] ++ map (user: ./users/${user}/nixos.nix) users;
         };
+    };
+    packages.default = extra-container.lib.buildContainers {
+      # The system of the container host
+      system = "x86_64-linux";
+
+      config = import ./containers/blahaj-bot.nix { agenix = inputs.agenix; blahaj-bot = inputs.blahaj-bot; };
     };
   };
 }

@@ -36,11 +36,11 @@
         "uv2nix": "uv2nix"
       },
       "locked": {
-        "lastModified": 1746306164,
-        "narHash": "sha256-XbV7StJAzn1JDjW5zFDkmYMWyUMNpueG3uLhGJAQZ9w=",
+        "lastModified": 1746651599,
+        "narHash": "sha256-QunilYaO4vLvqsRwJzVRTVmdGOxong2HH2TCm2kGozA=",
         "owner": "transgwender",
         "repo": "blahaj-bot",
-        "rev": "253ad62c160efa3b9d44115885270c444fce829f",
+        "rev": "30922c5d0daa71ff29ccbc6823089948cdd68d2a",
         "type": "github"
       },
       "original": {

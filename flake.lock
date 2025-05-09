@@ -23,33 +23,6 @@
         "type": "github"
       }
     },
-    "blahaj-bot": {
-      "inputs": {
-        "flake-utils": [
-          "flake-utils"
-        ],
-        "nixpkgs": [
-          "nixpkgs"
-        ],
-        "pyproject-build-systems": "pyproject-build-systems",
-        "pyproject-nix": "pyproject-nix",
-        "uv2nix": "uv2nix"
-      },
-      "locked": {
-        "lastModified": 1746651599,
-        "narHash": "sha256-QunilYaO4vLvqsRwJzVRTVmdGOxong2HH2TCm2kGozA=",
-        "owner": "transgwender",
-        "repo": "blahaj-bot",
-        "rev": "30922c5d0daa71ff29ccbc6823089948cdd68d2a",
-        "type": "github"
-      },
-      "original": {
-        "owner": "transgwender",
-        "ref": "main",
-        "repo": "blahaj-bot",
-        "type": "github"
-      }
-    },
     "darwin": {
       "inputs": {
         "nixpkgs": [
@@ -69,29 +42,6 @@
         "owner": "lnl7",
         "ref": "master",
         "repo": "nix-darwin",
-        "type": "github"
-      }
-    },
-    "extra-container": {
-      "inputs": {
-        "flake-utils": [
-          "flake-utils"
-        ],
-        "nixpkgs": [
-          "nixpkgs"
-        ]
-      },
-      "locked": {
-        "lastModified": 1734542275,
-        "narHash": "sha256-wnRkafo4YrIuvJeRsOmfStxIzi7ty2I0OtGMO9chwJc=",
-        "owner": "erikarvstedt",
-        "repo": "extra-container",
-        "rev": "fa723fb67201c1b4610fd3d608681da362f800eb",
-        "type": "github"
-      },
-      "original": {
-        "owner": "erikarvstedt",
-        "repo": "extra-container",
         "type": "github"
       }
     },
@@ -204,61 +154,9 @@
         "type": "github"
       }
     },
-    "pyproject-build-systems": {
-      "inputs": {
-        "nixpkgs": [
-          "blahaj-bot",
-          "nixpkgs"
-        ],
-        "pyproject-nix": [
-          "blahaj-bot",
-          "pyproject-nix"
-        ],
-        "uv2nix": [
-          "blahaj-bot",
-          "uv2nix"
-        ]
-      },
-      "locked": {
-        "lastModified": 1744599653,
-        "narHash": "sha256-nysSwVVjG4hKoOjhjvE6U5lIKA8sEr1d1QzEfZsannU=",
-        "owner": "pyproject-nix",
-        "repo": "build-system-pkgs",
-        "rev": "7dba6dbc73120e15b558754c26024f6c93015dd7",
-        "type": "github"
-      },
-      "original": {
-        "owner": "pyproject-nix",
-        "repo": "build-system-pkgs",
-        "type": "github"
-      }
-    },
-    "pyproject-nix": {
-      "inputs": {
-        "nixpkgs": [
-          "blahaj-bot",
-          "nixpkgs"
-        ]
-      },
-      "locked": {
-        "lastModified": 1745782090,
-        "narHash": "sha256-c/mqxgOVDcwrdcY3FqG22MwLPGY5rCz5gte1sxISKnM=",
-        "owner": "pyproject-nix",
-        "repo": "pyproject.nix",
-        "rev": "2db2d95ddbc4ff5e29730cb82fdba6647be258a7",
-        "type": "github"
-      },
-      "original": {
-        "owner": "pyproject-nix",
-        "repo": "pyproject.nix",
-        "type": "github"
-      }
-    },
     "root": {
       "inputs": {
         "agenix": "agenix",
-        "blahaj-bot": "blahaj-bot",
-        "extra-container": "extra-container",
         "flake-utils": "flake-utils",
         "lix": "lix",
         "lix-module": "lix-module",
@@ -292,31 +190,6 @@
       "original": {
         "owner": "nix-systems",
         "repo": "default",
-        "type": "github"
-      }
-    },
-    "uv2nix": {
-      "inputs": {
-        "nixpkgs": [
-          "blahaj-bot",
-          "nixpkgs"
-        ],
-        "pyproject-nix": [
-          "blahaj-bot",
-          "pyproject-nix"
-        ]
-      },
-      "locked": {
-        "lastModified": 1746048139,
-        "narHash": "sha256-LdCLyiihLg6P2/mjzP0+W7RtraDSIaJJPTy6SCtW5Ag=",
-        "owner": "pyproject-nix",
-        "repo": "uv2nix",
-        "rev": "680e2f8e637bc79b84268949d2f2b2f5e5f1d81c",
-        "type": "github"
-      },
-      "original": {
-        "owner": "pyproject-nix",
-        "repo": "uv2nix",
         "type": "github"
       }
     }

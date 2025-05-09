@@ -13,8 +13,6 @@
 
       # Include the results of the hardware scan.
       ./hardware-configuration.nix
-
-      (import ../../containers/blahaj-bot.nix { agenix = inputs.agenix; blahaj-bot = inputs.blahaj-bot; })
     ];
 
   # Bootloader.

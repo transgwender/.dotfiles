@@ -17,24 +17,12 @@
       inputs.flake-utils.follows = "flake-utils";
       inputs.lix.follows = "lix";
     };
-
-    extra-container = {
-      url = "github:erikarvstedt/extra-container";
-      inputs.nixpkgs.follows = "nixpkgs";
-      inputs.flake-utils.follows = "flake-utils";
-    };
     
     # Agenix secret manager
     agenix = {
       url = "github:ryantm/agenix";
       inputs.nixpkgs.follows = "nixpkgs";
-    };
-    
-    blahaj-bot = {
-      url = "github:transgwender/blahaj-bot/main";
-      inputs.nixpkgs.follows = "nixpkgs";
-      inputs.flake-utils.follows = "flake-utils";
-    };
+    };    
   };
 
   outputs =
@@ -44,9 +32,7 @@
       flake-utils,
       lix-module,
       lix,
-      extra-container,
       agenix,
-      blahaj-bot,
       ...
     }: {
     nixosConfigurations = {
@@ -65,16 +51,9 @@
             # so the old configuration file still takes effect
             ./hosts/home-server/configuration.nix
             lix-module.nixosModules.default
-            extra-container.nixosModules.default
             agenix.nixosModules.default
           ] ++ map (user: ./users/${user}/nixos.nix) users;
         };
-    };
-    packages.x86_64-linux.default = extra-container.lib.buildContainers {
-      # The system of the container host
-      system = "x86_64-linux";
-
-      config = import ./containers/blahaj-bot.nix { agenix = inputs.agenix; blahaj-bot = inputs.blahaj-bot; };
     };
   };
 }

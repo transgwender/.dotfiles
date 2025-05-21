@@ -4,13 +4,14 @@
 
 { config, pkgs, inputs, ... }:
 
-{
-  imports = #map (n: "${./../../modules}/${n}") (builtins.attrNames (builtins.readDir ./../../modules)) ++
+{  
+  imports =
     [
       ../../modules/network.nix
       ../../modules/display.nix
       ../../modules/system.nix
-      ../../modules/media.nix
+      (builtins.fetchGit { url = "ssh://git@github.com/transgwender/media-server-config.git"; ref = "main"; rev = "6168740f53c91d7bc321f3fec08a2befc3677128"; }).outPath
+      
       # Include the results of the hardware scan.
       ./hardware-configuration.nix
     ];

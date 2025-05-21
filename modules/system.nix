@@ -62,6 +62,6 @@
 
   # Blahaj-bot
   age.secrets.blahaj-bot-token = {
-    file = ../secrets/blahaj-bot-token.age;
+    file = ./../secrets/blahaj-bot-token.age;
   }; 
 }

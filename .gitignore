@@ -1,2 +1,3 @@
 .tmp
-modules/wireguard-keys/private
+secrets/wireguard-keys/private
+modules/media.nix

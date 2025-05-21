@@ -36,7 +36,7 @@
       '';
 
       # Path to the private key file.
-      privateKeyFile = "/etc/nixos/modules/wireguard-keys/private";
+      privateKeyFile = "/etc/nixos/secrets/wireguard-keys/private";
       
       peers = [
         # List of allowed peers.

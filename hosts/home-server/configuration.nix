@@ -5,15 +5,10 @@
 { config, pkgs, inputs, ... }:
 
 {
-  imports =
-    [
-      ../../modules/system.nix
-      ../../modules/display.nix
-      ../../modules/network.nix
-
+  imports = [
       # Include the results of the hardware scan.
       ./hardware-configuration.nix
-    ];
+  ] ++ map (n: "${../../modules}/${n}") (builtins.attrNames (builtins.readDir ../../modules));
 
   # Bootloader.
   boot.loader.systemd-boot.enable = true;

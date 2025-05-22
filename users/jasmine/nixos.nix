@@ -9,7 +9,7 @@
   users.users.jasmine = {
     isNormalUser = true;
       description = "jasmine";
-      extraGroups = [ "networkmanager" "wheel" "docker" ];
+      extraGroups = [ "networkmanager" "wheel" "docker" "media"];
       packages = with pkgs; [
         kdePackages.kate
         git

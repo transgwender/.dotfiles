@@ -22,6 +22,12 @@
 
   boot.supportedFilesystems = [ "ntfs" ];
 
+  users.groups = {
+    "media" = {
+      gid = 1000;
+    };
+  };
+
   fileSystems."/media" = {
     depends = ["/"];
     device = "/dev/disk/by-label/media";

@@ -4,6 +4,5 @@ let
 in
 {
   "blahaj-bot-token.age".publicKeys = [ system-home ];
-  "surfshark-user.age".publicKeys = [ system-home ];
-  "surfshark-pass.age".publicKeys = [ system-home ];
+  "surfshark-user-pass.age".publicKeys = [ system-home ];
 }

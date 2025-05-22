@@ -14,7 +14,7 @@
   networking.nat.internalInterfaces = [ "wg0" ];
   networking.firewall = {
     allowedUDPPorts = [ 53 51820 ];
-    allowedTCPPorts = [ 8096 ];
+    allowedTCPPorts = [ 5055 7878 8096 8989 ];
   };
 
   networking.wireguard.interfaces = {

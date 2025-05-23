@@ -28,6 +28,8 @@
     tree
     wireguard-tools
     tcpdump
+    nmap
+    iptables
     xfce.tumbler
     ffmpegthumbnailer
     inputs.agenix.packages."${system}".default
@@ -65,5 +67,10 @@
   # Blahaj-bot
   age.secrets.blahaj-bot-token = {
     file = ./../secrets/blahaj-bot-token.age;
-  }; 
+  };
+
+  # VPN
+  age.secrets.surfshark-user-pass = {
+    file = ./../secrets/surfshark-user-pass.age;
+  };
 }

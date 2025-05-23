@@ -2,7 +2,6 @@
 { pkgs, ... }:
 
 {
-
   # Enable tailscale
   services.tailscale.enable = true;
   networking.nftables.enable = true;
@@ -18,23 +17,7 @@
 
   networking.firewall = {
     allowedUDPPorts = [ 53 51820 ];
-    # allowedTCPPorts = [ 5055 7878 8096 8989 ];
   };
-
-  # networking.nftables = {
-  #   enable = true;
-  #   ruleset = ''
-  #     table ip media-nat {
-  #       chain PREROUTING {
-  #         type nat hook prerouting priority dstnat; policy accept;
-  #         tcp dport 8096 dnat to 192.168.100.11:8096
-  #         tcp dport 8989 dnat to 192.168.100.11:8989
-  #         tcp dport 7878 dnat to 192.168.100.11:7878
-  #         tcp dport 5055 dnat to 192.168.100.11:5055
-  #       }
-  #     }
-  #   '';
-  # };
 
   networking.wireguard.interfaces = {
     wg0 = {

@@ -10,7 +10,7 @@
       ../../modules/network.nix
       ../../modules/display.nix
       ../../modules/system.nix
-      (builtins.fetchGit { url = "ssh://git@github.com/transgwender/media-server-config.git"; ref = "main"; rev = "5049b6306b7f5bc4c22ee3dca3ddf7306d009648"; }).outPath
+      (builtins.fetchGit { url = "ssh://git@github.com/transgwender/media-server-config.git"; ref = "main"; rev = "36f93f3a21448d996d7cf5546a729832e2da0f4e"; }).outPath
       
       # Include the results of the hardware scan.
       ./hardware-configuration.nix

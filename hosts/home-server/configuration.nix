@@ -52,6 +52,28 @@
       PermitRootLogin = "no";
     };
   };
+
+  # SMART Monitoring
+  services.smartd = {
+    enable = true;
+    devices = [
+      {
+        device = "/dev/disk/by-id/nvme-WDS500G1X0E-00AFY0_204318806676"; # Main
+      }
+      {
+        device = "/dev/disk/by-id/ata-APPLE_HDD_ST2000DM001_W8E0GEH6"; # Storage
+      }
+      {
+        device = "/dev/disk/by-id/ata-HGST_HTS541010A9E680_JA1000CRJVL6YN"; # Media
+      }
+      {
+        device = "/dev/disk/by-id/ata-TS128GMTS800_C696950001"; # Emb SSD
+      }
+      {
+        device = "/dev/disk/by-id/ata-WDC_WD10EZEX-22MFCA0_WD-WCC6Y1ZRZP11"; # Emb HDD
+      }
+    ];
+  };
   
   # This value determines the NixOS release from which the default
   # settings for stateful data, like file locations and database versions

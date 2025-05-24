@@ -32,6 +32,7 @@
     iptables
     xfce.tumbler
     ffmpegthumbnailer
+    smartmontools
     inputs.agenix.packages."${system}".default
   ];
 

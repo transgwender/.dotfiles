@@ -16,6 +16,8 @@
       ../../modules/system.nix
       ../../modules/graphics.nix
       (builtins.fetchGit { url = "ssh://git@github.com/transgwender/media-server-config.git"; ref = "main"; rev = "417eacbd55637a22e1b5ce3a830126da892fe190"; }).outPath
+
+      ../../containers/blahaj-bot.nix
       
       # Include the results of the hardware scan.
       ./hardware-configuration.nix

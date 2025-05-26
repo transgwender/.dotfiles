@@ -3,7 +3,7 @@
 
   inputs = {
     # NixOS official package source
-    nixpkgs.url = "github:nixos/nixpkgs/nixos-unstable-small";
+    nixpkgs.url = "github:transgwender/nixpkgs/master";
     flake-utils.url = "github:numtide/flake-utils";
 
     lix = {

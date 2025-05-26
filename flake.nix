@@ -37,14 +37,21 @@
     }: {
     nixosConfigurations = {
       nixos = let
-         users = [ "jasmine" "ember" "astraea" ];
+        system = "x86_64-linux";
+        users = [ "jasmine" "ember" "astraea" ];
+
+        allowed-unfree-packages = [
+          "nvidia-x11"
+          "nvidia-settings"
+          "nvidia-persistenced"
+        ];
       in
         nixpkgs.lib.nixosSystem rec {
-          system = "x86_64-linux";
+          inherit system;
 
           # Set all inputs parameters as special arguments for all submodules,
           # so you can directly use all dependencies in inputs in submodules
-          specialArgs = { inherit inputs; };
+          specialArgs = { inherit allowed-unfree-packages inputs; };
 
           modules = [
             # Import the previous configuration.nix we used,

@@ -2,14 +2,19 @@
 # your system.  Help is available in the configuration.nix(5) man page
 # and in the NixOS manual (accessible by running ‘nixos-help’).
 
-{ config, pkgs, inputs, ... }:
+{ allowed-unfree-packages, config, lib, pkgs, inputs, ... }:
 
-{  
+{
+  nixpkgs.config = {
+    allowUnfreePredicate = pkg: builtins.elem (lib.getName pkg) allowed-unfree-packages;
+  };
+
   imports =
     [
       ../../modules/network.nix
       ../../modules/display.nix
       ../../modules/system.nix
+      ../../modules/graphics.nix
       (builtins.fetchGit { url = "ssh://git@github.com/transgwender/media-server-config.git"; ref = "main"; rev = "3a249373c411f017a51c80e2c8a892b9511bc516"; }).outPath
       
       # Include the results of the hardware scan.

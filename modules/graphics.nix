@@ -1,9 +1,14 @@
-{ config, ... }:
+{ config, pkgs, ... }:
 
 {
   # Enable OpenGL
   hardware.graphics = {
     enable = true;
+
+    extraPackages = with pkgs; [
+      nvidia-vaapi-driver
+      libvdpau-va-gl
+    ];
   };
 
   # Load nvidia driver for Xorg and Wayland

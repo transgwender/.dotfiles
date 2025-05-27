@@ -13,6 +13,8 @@
       };
     };
 
-    path = "/home/jasmine/Programming/media-server-config";
+    path = "/nix/var/nix/profiles/per-container/blahaj-bot/system";
+    flake = "github:transgwender/blahaj-bot/db";
+
   };
 }

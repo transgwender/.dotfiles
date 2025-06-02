@@ -51,7 +51,7 @@
   networking.wireless.enable = true;  # Enables wireless support via wpa_supplicant.
   networking.networkmanager.ensureProfiles = {
     environmentFiles = [
-      config.age.secrets.wifi-pass.path;
+      config.age.secrets.wifi-pass.path
     ];
 
     profiles = {

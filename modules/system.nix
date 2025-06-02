@@ -33,6 +33,7 @@
     xfce.tumbler
     ffmpegthumbnailer
     smartmontools
+    nix-index
     inputs.agenix.packages."${system}".default
   ];
 

@@ -5,4 +5,5 @@ in
 {
   "blahaj-bot-token.age".publicKeys = [ system-home ];
   "surfshark-user-pass.age".publicKeys = [ system-home ];
+  "wifi-pass.age".publicKeys = [ system-home ];
 }

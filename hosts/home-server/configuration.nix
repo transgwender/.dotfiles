@@ -41,11 +41,41 @@
     options = ["nofail"];
   };
 
+  age.secret.wifi-pass = {
+    file = ../../secrets/wifi-pass.age;
+    owner = "root";
+    group = "root";
+  };
+
   networking.hostName = "nixos"; # Define your hostname.
   networking.wireless.enable = true;  # Enables wireless support via wpa_supplicant.
-  networking.wireless.networks = {
-    "" = {
-      psk = "";
+  networking.networkmanager.ensureProfiles = {
+    environmentFiles = [
+      config.age.secrets.wifi-pass.path;
+    ];
+
+    profiles = {
+      Home = {
+        connection = {
+          id = "$HOME_PSK";
+          type = "wifi";
+        };
+        ipv4 = {
+          method = "auto";
+        };
+        ipv6 = {
+          addr-gen-mode = "stable-privacy";
+          method = "auto";
+        };
+        wifi = {
+          mode = "infrastructure";
+          ssid = "$HOME_SSID";
+        };
+        wifi-security = {
+          key-mgmt = "wpa-psk";
+          psk = "$HOME_PSK";
+        };
+      };
     };
   };
 

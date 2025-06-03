@@ -75,4 +75,11 @@
   age.secrets.surfshark-user-pass = {
     file = ./../secrets/surfshark-user-pass.age;
   };
+
+  # Wifi
+  age.secrets.wifi-pass = {
+    file = ./../secrets/wifi-pass.age;
+    owner = "root";
+    group = "root";
+  };
 }

@@ -41,14 +41,8 @@
     options = ["nofail"];
   };
 
-  age.secret.wifi-pass = {
-    file = ../../secrets/wifi-pass.age;
-    owner = "root";
-    group = "root";
-  };
-
   networking.hostName = "nixos"; # Define your hostname.
-  networking.wireless.enable = true;  # Enables wireless support via wpa_supplicant.
+  networking.networkmanager.enable = true;
   networking.networkmanager.ensureProfiles = {
     environmentFiles = [
       config.age.secrets.wifi-pass.path
@@ -57,8 +51,9 @@
     profiles = {
       Home = {
         connection = {
-          id = "$HOME_PSK";
+          id = "home";
           type = "wifi";
+          interface-name = "wlp4s0";
         };
         ipv4 = {
           method = "auto";

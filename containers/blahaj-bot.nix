@@ -3,8 +3,8 @@
     autoStart = true;
 
     bindMounts = {
-      "/data/blahaj-bot" = {
-        hostPath = "/data/devhaj-bot";
+      "/var/lib/ferretdb" = {
+        hostPath = "/data/devhaj-bot/db";
         isReadOnly = false;
       };
       

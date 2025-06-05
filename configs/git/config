@@ -1,0 +1,38 @@
+[alias]
+	s = status
+	sl = log -10 --color=always --pretty='format:%C(auto)%h %<(60,trunc)%s %>|(-35)%d%>|(-20)%aN%>|(-1)%ah' --abbrev-commit
+	rs = restore --staged
+	amend = commit --amend --no-edit
+	git = !git
+	leash = push --force-with-lease
+
+[core]
+	pager = delta
+
+[delta]
+	features = line-numbers decorations
+
+[user]
+	name = Gwendolyn Kornak
+	email = gwen@gwenkornak.ca
+
+[pull]
+	ff = only
+
+[push]
+	default = current
+
+[merge]
+	conflictStyle = zdiff3
+
+[diff]
+	colorMoved = dimmed-zebra
+
+[init]
+	defaultBranch = main
+
+[rebase]
+	# rebase --autosquash by default
+	autoSquash = true
+	# Warns on losing commits in rebase -i
+	missingCommitsCheck = warn

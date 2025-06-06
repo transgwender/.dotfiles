@@ -20,3 +20,4 @@ function enact_link() {
 mkdir -p ~/.config
 enact_link configs/git ~/.config/git
 enact_link configs/.bash_profile ~/.bash_profile
+enact_link configs/fish ~/.config/fish

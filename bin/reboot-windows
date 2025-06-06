@@ -1,0 +1,7 @@
+#!/bin/sh
+
+sudo /bin/bash <<EOF
+   # ref: https://discussion.fedoraproject.org/t/grub-one-time-boot-of-a-different-entry/98693
+   grub2-reboot 'Windows Boot Manager (on /dev/nvme1n1p1)'
+   shutdown -r now
+EOF

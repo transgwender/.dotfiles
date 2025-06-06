@@ -1,4 +1,5 @@
 #!/usr/bin/env bash
+# ref: https://github.com/justrowingby/dotfiles/blob/mainline/dotfiles.sh
 
 scriptdir=$(cd "$(dirname -- "$0")" ; pwd -P)
 
@@ -17,4 +18,5 @@ function enact_link() {
 }
 
 mkdir -p ~/.config
-enact_link git ~/.config/git
+enact_link configs/git ~/.config/git
+enact_link configs/.bash_profile ~/.bash_profile

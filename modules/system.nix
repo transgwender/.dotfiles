@@ -70,6 +70,9 @@
   age.secrets.blahaj-bot-token = {
     file = ./../secrets/blahaj-bot-token.age;
   };
+  age.secrets.devhaj-bot-token = {
+    file = ./../secrets/devhaj-bot-token.age;
+  };
 
   # VPN
   age.secrets.surfshark-user-pass = {

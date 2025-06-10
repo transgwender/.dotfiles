@@ -1,0 +1,11 @@
+#!/usr/bin/env python3
+
+import sys
+import os
+from pathlib import Path
+args = sys.argv
+if args[0].endswith('nix'):
+    args.insert(1, '--refresh')
+new_nix = Path(args[0]).name
+argv0 = Path('/run/current-system/sw/bin') / new_nix
+os.execv(argv0, [argv0] + args[1:])

@@ -34,6 +34,7 @@
     ffmpegthumbnailer
     smartmontools
     nix-index
+    python314
     inputs.agenix.packages."${system}".default
   ];
 

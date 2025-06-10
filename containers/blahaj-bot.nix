@@ -32,6 +32,6 @@
       };
     };
 
-    flake = "github:transgwender/blahaj-bot/backloggery";
+    flake = "github:transgwender/blahaj-bot/refactor";
   };
 }

@@ -1,5 +1,5 @@
 
-{ pkgs, ... }:
+{ config, pkgs, ... }:
 
 {
   # Enable tailscale
@@ -83,6 +83,16 @@
         minTime = "5m";
         maxTime = "30m";
         prefetching = true;
+      };
+    };
+  };
+
+  services.cloudflared = {
+    enable = true;
+    tunnels = {
+      "24c4a6c5-20ec-4ad3-8151-7446085d3319" = {
+        credentialsFile = "${config.age.secrets.cloudflared-creds.path}";
+        default = "http_status:404";
       };
     };
   };

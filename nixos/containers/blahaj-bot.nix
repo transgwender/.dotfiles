@@ -32,6 +32,6 @@
       };
     };
 
-    flake = "github:transgwender/blahaj-bot/refactor";
+    flake = "github:transgwender/blahaj-bot/roles";
   };
 }

@@ -10,4 +10,5 @@ in
   "devhaj-bot-token.age".publicKeys = [ system-home jasmine ];
   "surfshark-user-pass.age".publicKeys = [ system-home jasmine ];
   "wifi-pass.age".publicKeys = [ system-home jasmine ];
+  "cloudflared-creds.age".publicKeys = [ system-home jasmine ];
 }

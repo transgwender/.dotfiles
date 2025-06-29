@@ -35,6 +35,8 @@
     smartmontools
     nix-index
     python314
+    mediainfo
+    cloudflared
     inputs.agenix.packages."${system}".default
   ];
 
@@ -85,5 +87,10 @@
     file = ./../secrets/wifi-pass.age;
     owner = "root";
     group = "root";
+  };
+
+  # Cloudflared
+  age.secrets.cloudflared-creds = {
+    file = ./../secrets/cloudflared-creds.age;
   };
 }

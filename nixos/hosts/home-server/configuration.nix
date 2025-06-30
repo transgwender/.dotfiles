@@ -102,9 +102,6 @@
       {
         device = "/dev/disk/by-id/ata-TS128GMTS800_C696950001"; # Emb SSD
       }
-      {
-        device = "/dev/disk/by-id/ata-WDC_WD10EZEX-22MFCA0_WD-WCC6Y1ZRZP11"; # Emb HDD
-      }
     ];
   };
   

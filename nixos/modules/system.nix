@@ -37,6 +37,7 @@
     python314
     mediainfo
     cloudflared
+    fastfetch
     inputs.agenix.packages."${system}".default
   ];
 

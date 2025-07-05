@@ -22,7 +22,13 @@
     agenix = {
       url = "github:ryantm/agenix";
       inputs.nixpkgs.follows = "nixpkgs";
-    };    
+    };
+
+    continuwuity = {
+      url = "https://git.shork.ch/git-mirrors/continuwuity/archive/main.tar.gz";
+      inputs.nixpkgs.follows = "nixpkgs";
+      inputs.flake-utils.follows = "flake-utils";
+    };
   };
 
   outputs =

@@ -1,4 +1,4 @@
-{ config, pkgs, inputs, ... }:
+{ config, lib, pkgs, inputs, ... }:
 
 let
   # https://git.shork.ch/git-mirrors/continuwuity/src/commit/6a6f8e80f144140ed14c74b54ace5357c10ac66d/nix
@@ -19,7 +19,7 @@ let
   # Build a dervation that stores the content of `${server_name}/.well-known/matrix/server`
   well_known_server = pkgs.writeText "well-known-matrix-server" ''
     {
-      "m.server": "${matrix_hostname}"
+      "m.server": "${matrix_hostname}:443"
     }
   '';
 
@@ -31,6 +31,9 @@ let
       }
     }
   '';
+
+  # Package to use
+  conduit-package = inputs.continuwuity.packages.${pkgs.system}.default;
 in
 
 {
@@ -39,13 +42,18 @@ in
     enable = true;
 
     # This causes NixOS to use the flake defined in this repository instead of
-    # the build of Continuwuity built into nixpkgs.
-    package = inputs.continuwuity.packages.${pkgs.system}.default;
+    # the build of conduit built into nixpkgs.
+    package = conduit-package;
 
     settings.global = {
       inherit server_name;
+      database_backend = "rocksdb";
+      allow_registration = true;
+      registration_token = "bingusfruit";
     };
   };
+
+  systemd.services.conduit.serviceConfig.ExecStart = lib.mkForce "${conduit-package}/bin/conduwuit";
 
   services.nginx = {  
     virtualHosts = {
@@ -75,19 +83,19 @@ in
       };
 
       "${matrix_hostname}" = {
-        forceSSL = true;
+        addSSL = true;
         useACMEHost = "robotcowgirl.farm";
-        acmeFallbackHost = "http://robotcowgirl.farm";
+        acmeFallbackHost = "robotcowgirl.farm";
 
         listen = [
-          # {
-          #   addr = "0.0.0.0";
-          #   port = 80;
-          # }
-          # {
-          #   addr = "[::]";
-          #   port = 80;
-          # }       
+          {
+            addr = "0.0.0.0";
+            port = 80;
+          }
+          {
+            addr = "[::]";
+            port = 80;
+          }
           {
             addr = "0.0.0.0";
             port = 443;
@@ -109,7 +117,7 @@ in
           }
         ];
         
-        locations."/_matrix/" = {
+        locations."/" = {
           proxyPass = "http://backend_conduit$request_uri";
           proxyWebsockets = true;
           extraConfig = ''

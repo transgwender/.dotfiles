@@ -94,4 +94,9 @@
   age.secrets.cloudflared-creds = {
     file = ./../secrets/cloudflared-creds.age;
   };
+
+  # Matrix
+  age.secrets.matrix-registration-token = {
+    file = ./../secrets/matrix-registration-token.age;
+  };
 }

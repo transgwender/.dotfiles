@@ -49,12 +49,20 @@ in
       inherit server_name;
       database_backend = "rocksdb";
       allow_registration = true;
-      registration_token = "bingusfruit";
+      registration_token = "@secret@";
     };
   };
-
-  systemd.services.conduit.serviceConfig.ExecStart = lib.mkForce "${conduit-package}/bin/conduwuit";
-
+  
+  systemd.services.conduit.serviceConfig.ExecStart = lib.mkForce "${conduit-package}/bin/conduwuit --config /etc/matrix/config.toml";
+        
+  system.activationScripts."matrix-registration-token-secret" = lib.stringAfter [ "etc" "agenix" ] ''
+    secret=$(cat "${config.age.secrets.matrix-registration-token.path}")
+    configDir=/etc/matrix
+    mkdir -p "$configDir"
+    configFile=$configDir/config.toml
+    ${pkgs.gnused}/bin/sed "s#@secret@#$secret#" "${config.systemd.services.conduit.environment."CONDUIT_CONFIG"}" > "$configFile"
+  '';
+  
   services.nginx = {  
     virtualHosts = {
       "${server_name}" = {

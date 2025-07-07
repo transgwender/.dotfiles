@@ -11,4 +11,5 @@ in
   "surfshark-user-pass.age".publicKeys = [ system-home jasmine ];
   "wifi-pass.age".publicKeys = [ system-home jasmine ];
   "cloudflared-creds.age".publicKeys = [ system-home jasmine ];
+  "matrix-registration-token.age".publicKeys = [ system-home jasmine ];
 }

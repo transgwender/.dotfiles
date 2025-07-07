@@ -25,7 +25,7 @@
     };
 
     continuwuity = {
-      url = "https://forgejo.ellis.link/transgwender/continuwuity/archive/transgwender-rust-hash.tar.gz";
+      url = "https://forgejo.ellis.link/continuwuation/continuwuity/archive/main.tar.gz";
       inputs.nixpkgs.follows = "nixpkgs";
       inputs.flake-utils.follows = "flake-utils";
     };

@@ -17,9 +17,10 @@
       ../../modules/graphics.nix
       ../../modules/website.nix
       ../../modules/matrix.nix
-      (builtins.fetchGit { url = "ssh://git@github.com/transgwender/media-server-config.git"; ref = "main"; rev = "417eacbd55637a22e1b5ce3a830126da892fe190"; }).outPath
+      (builtins.fetchGit { url = "ssh://git@github.com/transgwender/media-server-config.git"; ref = "main"; rev = "d003713b5b6125b53b77d9b87d9af5e1e188afaa"; }).outPath
 
       ../../containers/blahaj-bot.nix
+      ../../containers/streemtech2obs.nix
       
       # Include the results of the hardware scan.
       ./hardware-configuration.nix

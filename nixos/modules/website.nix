@@ -44,6 +44,7 @@
     certs."robotcowgirl.farm".extraDomainNames = [
       "www.robotcowgirl.farm"
       "matrix.robotcowgirl.farm"
+      "obs.robotcowgirl.farm"
     ];
   };
 }

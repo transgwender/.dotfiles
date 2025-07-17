@@ -55,6 +55,13 @@
   containers.streemtech2obs = {
     autoStart = true;
 
+    bindMounts = {
+      "/etc/streemtech2obs/config" = {
+        hostPath = "/run/agenix/streemtech2obs-config";
+        isReadOnly = true;
+      };
+    };
+
     flake = "github:transgwender/streemtech2obs";
   };
 }

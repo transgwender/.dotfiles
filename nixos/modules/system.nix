@@ -99,4 +99,9 @@
   age.secrets.matrix-registration-token = {
     file = ./../secrets/matrix-registration-token.age;
   };
+
+  # streemtech2obs
+  age.secrets.streemtech2obs-config = {
+    file = ./../secrets/streemtech2obs-config.age;
+  };
 }

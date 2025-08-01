@@ -13,4 +13,5 @@ in
   "cloudflared-creds.age".publicKeys = [ system-home jasmine ];
   "matrix-registration-token.age".publicKeys = [ system-home jasmine ];
   "streemtech2obs-config.age".publicKeys = [ system-home jasmine ];
+  "nextcloud-admin-pass.age".publicKeys = [ system-home jasmine ];
 }

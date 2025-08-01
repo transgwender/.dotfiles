@@ -11,11 +11,6 @@
     description = "ember";
   };
 
-  fileSystems."/home/ember/Storage" = {
-    depends = ["/"];
-    device = "/dev/disk/by-label/store-emb";
-    options = ["nofail"];
-  };
 
   fileSystems."/home/ember/Shared" = {
     depends = ["/"];

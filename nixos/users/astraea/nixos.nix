@@ -11,12 +11,6 @@
     description = "astraea";
   };
 
-  fileSystems."/home/astraea/Storage" = {
-    depends = ["/"];
-    device = "/dev/disk/by-label/store-ast";
-    options = ["nofail"];
-  };
-
   fileSystems."/home/astraea/Shared" = {
     depends = ["/"];
     device = "/home/shared";

@@ -45,6 +45,7 @@
       "www.robotcowgirl.farm"
       "matrix.robotcowgirl.farm"
       "obs.robotcowgirl.farm"
+      "cloud.robotcowgirl.farm"
     ];
   };
 }

@@ -17,12 +17,6 @@
       ];
   };
 
-  fileSystems."/home/jasmine/Storage" = {
-    depends = ["/"];
-    device = "/dev/disk/by-label/store-jas";
-    options = ["nofail"];
-  };
-
   fileSystems."/home/jasmine/Shared" = {
     depends = ["/"];
     device = "/home/shared";

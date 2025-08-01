@@ -17,6 +17,7 @@
       ../../modules/graphics.nix
       ../../modules/website.nix
       ../../modules/matrix.nix
+      ../../modules/nextcloud.nix
       (builtins.fetchGit { url = "ssh://git@github.com/transgwender/media-server-config.git"; ref = "main"; rev = "d003713b5b6125b53b77d9b87d9af5e1e188afaa"; }).outPath
 
       ../../containers/blahaj-bot.nix

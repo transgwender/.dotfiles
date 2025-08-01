@@ -104,4 +104,9 @@
   age.secrets.streemtech2obs-config = {
     file = ./../secrets/streemtech2obs-config.age;
   };
+
+  # nextcloud
+  age.secrets.nextcloud-admin-pass = {
+    file = ./../secrets/nextcloud-admin-pass.age;
+  };
 }

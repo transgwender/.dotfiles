@@ -18,7 +18,7 @@
   };
 
   containers.devhaj-bot = {
-    autoStart = true;
+    autoStart = false;
 
     bindMounts = {
       "/var/lib/ferretdb" = {

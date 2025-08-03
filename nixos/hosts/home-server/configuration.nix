@@ -18,7 +18,7 @@
       ../../modules/website.nix
       ../../modules/matrix.nix
       ../../modules/nextcloud.nix
-      (builtins.fetchGit { url = "ssh://git@github.com/transgwender/media-server-config.git"; ref = "main"; rev = "d003713b5b6125b53b77d9b87d9af5e1e188afaa"; }).outPath
+      (builtins.fetchGit { url = "ssh://git@github.com/transgwender/media-server-config.git"; ref = "main"; rev = "485c89a65bec4bbda7e794e6963d177c63c0e6f1"; }).outPath
 
       ../../containers/blahaj-bot.nix
       ../../containers/streemtech2obs.nix
@@ -42,6 +42,12 @@
   fileSystems."/media" = {
     depends = ["/"];
     device = "/dev/disk/by-label/media";
+    options = ["nofail"];
+  };
+
+  fileSystems."/more-media" = {
+    depends = ["/"];
+    device = "/dev/disk/by-label/more-media";
     options = ["nofail"];
   };
 
@@ -104,6 +110,12 @@
       }
       {
         device = "/dev/disk/by-id/ata-TS128GMTS800_C696950001"; # Emb SSD
+      }
+      {
+        device = "/dev/disk/by-id/ata-Hitachi_HDS723020BLA642_MN1220F319G4HD"; # Minecraft
+      }
+      {
+        device = "/dev/disk/by-id/ata-TOSHIBA_DT01ACA200_359K3KETS"; # More Media
       }
     ];
   };

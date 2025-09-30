@@ -6,7 +6,8 @@
     path = with pkgs; [ timetagger ];
     script = ''
       timetagger --datadir=/opt/timetagger --bind=127.0.0.1:8463 --log_level=info --credentials=jasmine:\$2a\$08\$70sG5WyIZytU7P9G.jGzAO7KXmE44GSpKSXAzWMBAzlX7fZXnl3aO
-    '';    
+    '';
+    wantedBy = ["multi-user.target"];
   };
 
   services.nginx = {

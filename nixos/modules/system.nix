@@ -38,6 +38,7 @@
     mediainfo
     cloudflared
     fastfetch
+    # timetagger
     inputs.agenix.packages."${system}".default
   ];
 

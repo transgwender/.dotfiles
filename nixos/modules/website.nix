@@ -46,6 +46,7 @@
       "matrix.robotcowgirl.farm"
       "obs.robotcowgirl.farm"
       "cloud.robotcowgirl.farm"
+      "timetagger.robotcowgirl.farm"
     ];
   };
 }

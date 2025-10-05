@@ -136,6 +136,29 @@
         "url": "https://forgejo.ellis.link/continuwuation/continuwuity/archive/main.tar.gz"
       }
     },
+    "copyparty": {
+      "inputs": {
+        "flake-utils": [
+          "flake-utils"
+        ],
+        "nixpkgs": [
+          "nixpkgs"
+        ]
+      },
+      "locked": {
+        "lastModified": 1759504408,
+        "narHash": "sha256-BmJmvOVNTElKXoD90G0ARIBzEncz83+xuk9qlNXKYl8=",
+        "owner": "9001",
+        "repo": "copyparty",
+        "rev": "31f1b535b2a69d36249b9f341446a2ded0a7f838",
+        "type": "github"
+      },
+      "original": {
+        "owner": "9001",
+        "repo": "copyparty",
+        "type": "github"
+      }
+    },
     "crane": {
       "locked": {
         "lastModified": 1751562746,
@@ -638,6 +661,7 @@
       "inputs": {
         "agenix": "agenix",
         "continuwuity": "continuwuity",
+        "copyparty": "copyparty",
         "flake-utils": "flake-utils",
         "lix": "lix",
         "lix-module": "lix-module",

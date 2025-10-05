@@ -17,7 +17,7 @@
       ../../modules/graphics.nix
       ../../modules/website.nix
       ../../modules/matrix.nix
-      ../../modules/nextcloud.nix
+      ../../modules/storage.nix
       ../../modules/minecraft.nix
       ../../modules/timetagger.nix
       (builtins.fetchGit { url = "ssh://git@github.com/transgwender/media-server-config.git"; ref = "main"; rev = "485c89a65bec4bbda7e794e6963d177c63c0e6f1"; }).outPath

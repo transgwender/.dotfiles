@@ -14,4 +14,5 @@ in
   "matrix-registration-token.age".publicKeys = [ system-home jasmine ];
   "streemtech2obs-config.age".publicKeys = [ system-home jasmine ];
   "nextcloud-admin-pass.age".publicKeys = [ system-home jasmine ];
+  "copyparty-jas-pass.age".publicKeys = [ system-home jasmine ];
 }

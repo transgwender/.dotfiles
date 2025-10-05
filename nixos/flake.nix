@@ -29,6 +29,12 @@
       inputs.nixpkgs.follows = "nixpkgs";
       inputs.flake-utils.follows = "flake-utils";
     };
+
+    copyparty = {
+      url = "github:9001/copyparty";
+      inputs.nixpkgs.follows = "nixpkgs";
+      inputs.flake-utils.follows = "flake-utils";
+    };
   };
 
   outputs =
@@ -39,6 +45,7 @@
       lix-module,
       lix,
       agenix,
+      copyparty,
       ...
     }: {
     nixosConfigurations = {
@@ -65,6 +72,10 @@
             ./hosts/home-server/configuration.nix
             lix-module.nixosModules.default
             agenix.nixosModules.default
+            copyparty.nixosModules.default
+            ({ pkgs, ...}: {
+              nixpkgs.overlays = [ copyparty.overlays.default ];
+            })
           ] ++ map (user: ./users/${user}/nixos.nix) users;
         };
     };

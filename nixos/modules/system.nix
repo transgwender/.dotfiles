@@ -38,8 +38,8 @@
     mediainfo
     cloudflared
     fastfetch
-    # timetagger
     inputs.agenix.packages."${system}".default
+    copyparty
   ];
 
   # Enable CUPS to print documents.
@@ -109,5 +109,11 @@
   # nextcloud
   age.secrets.nextcloud-admin-pass = {
     file = ./../secrets/nextcloud-admin-pass.age;
+  };
+
+  # copyparty
+  age.secrets.copyparty-jas-pass = {
+    file = ./../secrets/copyparty-jas-pass.age;
+    owner = "copyparty";
   };
 }

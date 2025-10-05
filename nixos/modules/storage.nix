@@ -1,9 +1,29 @@
 { config, pkgs, inputs, ... }:
 
 {
-  fileSystems."/mnt/nextcloud" = {
+  fileSystems."/mnt/storage" = {
     device = "/dev/disk/by-label/store";
     options = ["nofail"];
+  };
+
+  services.copyparty = {
+    enable = true;
+    user = "copyparty";
+    group = "copyparty";
+    settings = {
+      xff-hdr = "cf-connecting-ip";
+    };
+    accounts = {
+      jasmine.passwordFile = "/run/agenix/copyparty-jas-pass";
+    };
+    volumes = {
+      "/" = {
+        path = "/mnt/storage/copyparty";
+        access = {
+          rw = [ "jasmine" ];
+        };
+      };
+    };
   };
 
   services.nextcloud = {
@@ -11,8 +31,9 @@
     package = pkgs.nextcloud31;
     hostName = "cloud.robotcowgirl.farm";
     https = true;
+    database.createLocally = true;
     maxUploadSize = "1G";
-    datadir = "/mnt/nextcloud";
+    datadir = "/mnt/storage/nextcloud";
     config.adminpassFile = "${config.age.secrets.nextcloud-admin-pass.path}";
     config.dbtype = "sqlite";
 

@@ -74,7 +74,14 @@
             agenix.nixosModules.default
             copyparty.nixosModules.default
             ({ pkgs, ...}: {
-              nixpkgs.overlays = [ copyparty.overlays.default ];
+              nixpkgs.overlays = [
+                copyparty.overlays.default
+                (self: super: {
+                  copyparty = super.copyparty.override {
+                    withFastThumbnails = true;
+                  };
+                })
+              ];
             })
           ] ++ map (user: ./users/${user}/nixos.nix) users;
         };

@@ -31,7 +31,10 @@
     nmap
     iptables
     xfce.tumbler
+    (ffmpeg-full.override { withUnfree = true; })
     ffmpegthumbnailer
+    libheif
+    libheif.out
     smartmontools
     nix-index
     python314

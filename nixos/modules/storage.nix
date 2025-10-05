@@ -11,6 +11,7 @@
     user = "copyparty";
     group = "copyparty";
     settings = {
+      rproxy = 1;
       xff-hdr = "cf-connecting-ip";
     };
     accounts = {
@@ -21,6 +22,11 @@
         path = "/mnt/storage/copyparty";
         access = {
           rw = [ "jasmine" ];
+        };
+        flags = {
+          th-img = true;
+          th-v = true;
+          v-pvw = true;
         };
       };
     };

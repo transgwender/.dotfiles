@@ -30,6 +30,13 @@
           v-pvw = true;
         };
       };
+      "/public" = {
+        path = "/mnt/storage/copyparty/public";
+        access = {
+          r = "*";
+          rw = [ "jasmine" ];
+        };
+      };
     };
   };
 

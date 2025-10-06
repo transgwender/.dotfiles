@@ -119,4 +119,12 @@
     file = ./../secrets/copyparty-jas-pass.age;
     owner = "copyparty";
   };
+  age.secrets.copyparty-emb-pass = {
+    file = ./../secrets/copyparty-emb-pass.age;
+    owner = "copyparty";
+  };
+  age.secrets.copyparty-ast-pass = {
+    file = ./../secrets/copyparty-ast-pass.age;
+    owner = "copyparty";
+  };
 }

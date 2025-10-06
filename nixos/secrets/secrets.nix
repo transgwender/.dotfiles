@@ -15,4 +15,6 @@ in
   "streemtech2obs-config.age".publicKeys = [ system-home jasmine ];
   "nextcloud-admin-pass.age".publicKeys = [ system-home jasmine ];
   "copyparty-jas-pass.age".publicKeys = [ system-home jasmine ];
+  "copyparty-emb-pass.age".publicKeys = [ system-home jasmine ];
+  "copyparty-ast-pass.age".publicKeys = [ system-home jasmine ];
 }

@@ -70,6 +70,8 @@
         };
         flags = {
           fk = 4;
+          chmod_f = 644;
+          chmod_d = 755;
         };
       };
       "/shared" = {

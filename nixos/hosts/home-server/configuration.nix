@@ -20,7 +20,7 @@
       ../../modules/storage.nix
       ../../modules/minecraft.nix
       ../../modules/timetagger.nix
-      (builtins.fetchGit { url = "ssh://git@github.com/transgwender/media-server-config.git"; ref = "main"; rev = "485c89a65bec4bbda7e794e6963d177c63c0e6f1"; }).outPath
+      (builtins.fetchGit { url = "ssh://git@github.com/transgwender/media-server-config.git"; ref = "main"; rev = "58750aee2f0abe2472bfa98000ed4d6240052304"; }).outPath
 
       ../../containers/blahaj-bot.nix
       ../../containers/streemtech2obs.nix

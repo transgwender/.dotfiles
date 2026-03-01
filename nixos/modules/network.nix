@@ -10,13 +10,21 @@
   # Enable NAT
   networking.nat = {
     enable = true;
-    externalInterface = "wlp4s0";
+    externalInterface = "enp5s0";
     internalInterfaces = [ "wg0" ];
     enableIPv6 = true;
   };
 
   networking.firewall = {
-    allowedUDPPorts = [ 53 51820 ];
+    allowedUDPPorts = [ 53 51820 51819 ];
+  };
+
+  networking.nameservers = [ "10.64.0.1" ];
+
+  boot.kernel.sysctl = {
+    "net.ipv4.ip_forward"  = 1;
+    "net.ipv4.conf.mv0.rp_filter" = 2;
+    "net.ipv4.conf.all.rp_filter" = 2;
   };
 
   networking.wireguard.interfaces = {
@@ -30,12 +38,12 @@
       # This allows the wireguard server to route your traffic to the internet and hence be like a VPN
       # For this to work you have to set the dnsserver IP of your router (or dnsserver of choice) in your clients
       postSetup = ''
-        ${pkgs.iptables}/bin/iptables -t nat -A POSTROUTING -s 10.100.0.0/24 -o wlp4s0 -j MASQUERADE
+        ${pkgs.iptables}/bin/iptables -t nat -A POSTROUTING -s 10.100.0.0/24 -o enp5s0 -j MASQUERADE
       '';
 
       # This undoes the above command
       postShutdown = ''
-        ${pkgs.iptables}/bin/iptables -t nat -D POSTROUTING -s 10.100.0.0/24 -o wlp4s0 -j MASQUERADE
+        ${pkgs.iptables}/bin/iptables -t nat -D POSTROUTING -s 10.100.0.0/24 -o enp5s0 -j MASQUERADE
       '';
 
       # Path to the private key file.
@@ -54,7 +62,47 @@
       ];
     };
   };
+  networking.wg-quick.interfaces = {
+    mv0 = {
+      address = [
+        "10.69.5.45/32"
+      ];
+      dns = [ "10.64.0.1" ];
+      listenPort = 51819;
+      
+      privateKeyFile = "${config.age.secrets.mullvad-key.path}";
+      table = "100";
 
+      postUp = ''
+        ip rule add from 10.69.5.45 table 100
+        ip rule add from 192.168.100.13 table 100
+        ip rule add to 192.168.100.12 lookup main priority 100
+        ip rule add from 192.168.100.12 to 192.168.000.0/16 lookup main priority 100
+        ip rule add from 192.168.100.12 table 100 priority 200
+        ip rule add fwmark 42 table 100
+      '';
+      postDown = ''
+        ip rule del from 10.69.5.45 table 100
+        ip rule del from 192.168.100.13 table 100
+        ip rule del to 192.168.100.12 lookup main priority 100
+        ip rule del from 192.168.100.12 to 192.168.000.0/16 lookup main priority 100
+        ip rule del from 192.168.100.12 table 100 priority 200
+        ip rule del fwmark 42 table 100
+      '';
+      
+      peers = [
+          {
+            publicKey = "hYbb2NQKB0g2RefngdHl3bfaLImUuzeVIv2i1VCVIlQ=";
+            allowedIPs = [
+              "0.0.0.0/0"
+            ];
+            endpoint = "104.193.135.196:51819";
+            persistentKeepalive = 25;
+          }
+      ];
+    };
+  };
+    
   # DNS proxy and ad-blocker
   services.blocky = {
     enable = true;

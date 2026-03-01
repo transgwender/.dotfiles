@@ -8,13 +8,13 @@
         isReadOnly = false;
       };
       
-      "/etc/blahaj-bot/token" = {
-        hostPath = "/run/agenix/blahaj-bot-token";
+      "/etc/blahaj-bot/config" = {
+        hostPath = "/run/agenix/blahaj-bot-config";
         isReadOnly = true;
       };
     };
 
-    flake = "github:transgwender/blahaj-bot";
+    flake = "https://git.robotcowgirl.farm/transgwender/blahaj-bot/archive/main.tar.gz";
   };
 
   containers.devhaj-bot = {
@@ -26,12 +26,12 @@
         isReadOnly = false;
       };
       
-      "/etc/blahaj-bot/token" = {
-        hostPath = "/run/agenix/devhaj-bot-token";
+      "/etc/blahaj-bot/config" = {
+        hostPath = "/run/agenix/devhaj-bot-config";
         isReadOnly = true;
       };
     };
 
-    flake = "github:transgwender/blahaj-bot/roles";
+    flake = "https://git.robotcowgirl.farm/transgwender/blahaj-bot/archive/quotes.tar.gz";
   };
 }

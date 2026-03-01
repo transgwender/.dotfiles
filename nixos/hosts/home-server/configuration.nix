@@ -16,14 +16,17 @@
       ../../modules/system.nix
       ../../modules/graphics.nix
       ../../modules/website.nix
-      ../../modules/matrix.nix
+      # ../../modules/matrix.nix
       ../../modules/storage.nix
-      ../../modules/minecraft.nix
+      # ../../modules/minecraft.nix
       ../../modules/timetagger.nix
-      (builtins.fetchGit { url = "ssh://git@github.com/transgwender/media-server-config.git"; ref = "main"; rev = "58750aee2f0abe2472bfa98000ed4d6240052304"; }).outPath
+      ../../modules/mullvad.nix
+      (builtins.fetchGit { url = "ssh://git@github.com/transgwender/media-server-config.git"; ref = "main"; rev = "70bc8bf1bc8cd8d73f2540a43deea8fbb0b0ec07"; }).outPath
 
       ../../containers/blahaj-bot.nix
       ../../containers/streemtech2obs.nix
+      ../../containers/colonH.nix
+      ../../containers/robotgirl-server-interface.nix
       
       # Include the results of the hardware scan.
       ./hardware-configuration.nix

@@ -6,8 +6,6 @@ let
   systems = [ system-home ];
 in
 {
-  "blahaj-bot-token.age".publicKeys = [ system-home jasmine ];
-  "devhaj-bot-token.age".publicKeys = [ system-home jasmine ];
   "surfshark-user-pass.age".publicKeys = [ system-home jasmine ];
   "wifi-pass.age".publicKeys = [ system-home jasmine ];
   "cloudflared-creds.age".publicKeys = [ system-home jasmine ];
@@ -17,4 +15,10 @@ in
   "copyparty-jas-pass.age".publicKeys = [ system-home jasmine ];
   "copyparty-emb-pass.age".publicKeys = [ system-home jasmine ];
   "copyparty-ast-pass.age".publicKeys = [ system-home jasmine ];
+  "colonH-token.age".publicKeys = [ system-home jasmine ];
+  "git-credentials.age".publicKeys = [ system-home jasmine ];
+  "robotgirl-server-interface-config.age".publicKeys = [ system-home jasmine ];
+  "blahaj-bot-config.age".publicKeys = [ system-home jasmine ];
+  "devhaj-bot-config.age".publicKeys = [ system-home jasmine ];
+  "mullvad-key.age".publicKeys = [ system-home jasmine ];
 }

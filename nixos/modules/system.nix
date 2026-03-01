@@ -30,7 +30,7 @@
     tcpdump
     nmap
     iptables
-    xfce.tumbler
+    tumbler
     (ffmpeg-full.override { withUnfree = true; })
     ffmpegthumbnailer
     libheif
@@ -75,11 +75,11 @@
   systemd.targets.hybrid-sleep.enable = false;
 
   # Blahaj-bot
-  age.secrets.blahaj-bot-token = {
-    file = ./../secrets/blahaj-bot-token.age;
+  age.secrets.blahaj-bot-config = {
+    file = ./../secrets/blahaj-bot-config.age;
   };
-  age.secrets.devhaj-bot-token = {
-    file = ./../secrets/devhaj-bot-token.age;
+  age.secrets.devhaj-bot-config = {
+    file = ./../secrets/devhaj-bot-config.age;
   };
 
   # VPN
@@ -126,5 +126,24 @@
   age.secrets.copyparty-ast-pass = {
     file = ./../secrets/copyparty-ast-pass.age;
     owner = "copyparty";
+  };
+
+  # colonH
+  age.secrets.colonH-token = {
+    file = ./../secrets/colonH-token.age;
+  };
+
+  # git credentials
+  age.secrets.git-credentials = {
+    file = ./../secrets/git-credentials.age;
+  };
+
+  # robotgirl-server-interface
+  age.secrets.robotgirl-server-interface-config = {
+    file = ./../secrets/robotgirl-server-interface-config.age;
+  };
+
+  age.secrets.mullvad-key = {
+    file = ./../secrets/mullvad-key.age;
   };
 }

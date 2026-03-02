@@ -21,6 +21,7 @@
       # ../../modules/minecraft.nix
       ../../modules/timetagger.nix
       ../../modules/mullvad.nix
+      ../../modules/mealie.nix
       (builtins.fetchGit { url = "ssh://git@github.com/transgwender/media-server-config.git"; ref = "main"; rev = "70bc8bf1bc8cd8d73f2540a43deea8fbb0b0ec07"; }).outPath
 
       ../../containers/blahaj-bot.nix

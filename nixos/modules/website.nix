@@ -48,6 +48,7 @@
       "cloud.robotcowgirl.farm"
       "timetagger.robotcowgirl.farm"
       "api.robotcowgirl.farm"
+      "mealie.robotcowgirl.farm"
     ];
   };
 }

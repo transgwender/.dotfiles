@@ -43,6 +43,7 @@
     fastfetch
     inputs.agenix.packages."${system}".default
     copyparty
+    mealie
   ];
 
   # Enable CUPS to print documents.

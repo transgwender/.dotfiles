@@ -83,6 +83,7 @@
         ip rule add from 192.168.100.12 table 100 priority 200
         ip rule add fwmark 42 table 100
         ip -6 rule add from fc00::3 table 100
+        ip -6 rule add from fc00::4 table 100
       '';
       postDown = ''
         ip rule del from 10.69.5.45 table 100
@@ -93,6 +94,7 @@
         ip rule del from 192.168.100.12 table 100 priority 200
         ip rule del fwmark 42 table 100
         ip -6 rule del from fc00::3 table 100
+        ip -6 rule del from fc00::4 table 100
       '';
       
       peers = [

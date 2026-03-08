@@ -21,7 +21,7 @@
     hostAddress = "192.168.100.10";
     localAddress = "192.168.100.13";
     hostAddress6 = "fc00::1";
-    localAddress6 = "fc00::3";
+    localAddress6 = "fc00::4";
 
     config = { config, pkgs, lib, ... }: {
       system.stateVersion = "24.11";

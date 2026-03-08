@@ -1,0 +1,46 @@
+{ config, pkgs, ... }:
+
+{
+  # Cloud
+  services.nextcloud = {
+    enable = true;
+    package = pkgs.nextcloud31;
+    hostName = "cloud.robotcowgirl.farm";
+    https = true;
+    database.createLocally = true;
+    maxUploadSize = "1G";
+    datadir = "/mnt/storage/nextcloud";
+    config.adminpassFile = "${config.age.secrets.nextcloud-admin-pass.path}";
+    config.dbtype = "sqlite";
+
+    settings.enabledPreviewProviders = [
+      "OC\\Preview\\BMP"
+      "OC\\Preview\\GIF"
+      "OC\\Preview\\JPEG"
+      "OC\\Preview\\Krita"
+      "OC\\Preview\\MarkDown"
+      "OC\\Preview\\MP3"
+      "OC\\Preview\\OpenDocument"
+      "OC\\Preview\\PNG"
+      "OC\\Preview\\TXT"
+      "OC\\Preview\\XBitmap"
+      "OC\\Preview\\HEIC"
+    ];
+  };
+
+  services.nginx = {
+    virtualHosts = {
+      "${config.services.nextcloud.hostName}" = {
+        addSSL = true;
+        useACMEHost = "robotcowgirl.farm";
+        acmeFallbackHost = "robotcowgirl.farm";
+      };
+    };
+  };
+
+  security.acme = {
+    certs."robotcowgirl.farm".extraDomainNames = [
+      "cloud.robotcowgirl.farm"
+    ];
+  };
+}

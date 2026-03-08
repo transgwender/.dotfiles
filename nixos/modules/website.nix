@@ -45,7 +45,6 @@
       "www.robotcowgirl.farm"
       "matrix.robotcowgirl.farm"
       "obs.robotcowgirl.farm"
-      "cloud.robotcowgirl.farm"
       "timetagger.robotcowgirl.farm"
       "api.robotcowgirl.farm"
       "mealie.robotcowgirl.farm"

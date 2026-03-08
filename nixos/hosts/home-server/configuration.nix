@@ -58,38 +58,7 @@
   };
 
   networking.hostName = "nixos"; # Define your hostname.
-  networking.networkmanager.enable = true;
-  networking.networkmanager.ensureProfiles = {
-    environmentFiles = [
-      config.age.secrets.wifi-pass.path
-    ];
-
-    profiles = {
-      Home = {
-        connection = {
-          id = "home";
-          type = "wifi";
-          interface-name = "wlp4s0";
-        };
-        ipv4 = {
-          method = "auto";
-        };
-        ipv6 = {
-          addr-gen-mode = "stable-privacy";
-          method = "auto";
-        };
-        wifi = {
-          mode = "infrastructure";
-          ssid = "$HOME_SSID";
-        };
-        wifi-security = {
-          key-mgmt = "wpa-psk";
-          psk = "$HOME_PSK";
-        };
-      };
-    };
-  };
-
+  
   # SSH
   services.openssh = {
     enable = true;

@@ -17,14 +17,14 @@
 
   networking.firewall = {
     allowedUDPPorts = [ 53 51820 51819 ];
+    checkReversePath = "loose";
   };
 
   networking.nameservers = [ "10.64.0.1" ];
 
   boot.kernel.sysctl = {
-    "net.ipv4.ip_forward"  = 1;
-    "net.ipv4.conf.mv0.rp_filter" = 2;
-    "net.ipv4.conf.all.rp_filter" = 2;
+    "net.ipv4.ip_forward" = 1;
+    "net.ipv6.conf.all.forwarding" = 1;
   };
 
   networking.wireguard.interfaces = {
@@ -65,6 +65,7 @@
   networking.wg-quick.interfaces = {
     mv0 = {
       address = [
+        "fc00:bbbb:bbbb:bb01::6:52c/128"
         "10.69.5.45/32"
       ];
       dns = [ "10.64.0.1" ];
@@ -75,25 +76,30 @@
 
       postUp = ''
         ip rule add from 10.69.5.45 table 100
+        ip -6 rule add from fc00:bbbb:bbbb:bb01::6:52c table 100
         ip rule add from 192.168.100.13 table 100
         ip rule add to 192.168.100.12 lookup main priority 100
         ip rule add from 192.168.100.12 to 192.168.000.0/16 lookup main priority 100
         ip rule add from 192.168.100.12 table 100 priority 200
         ip rule add fwmark 42 table 100
+        ip -6 rule add from fc00::3 table 100
       '';
       postDown = ''
         ip rule del from 10.69.5.45 table 100
+        ip -6 rule del from fc00:bbbb:bbbb:bb01::6:52c table 100
         ip rule del from 192.168.100.13 table 100
         ip rule del to 192.168.100.12 lookup main priority 100
         ip rule del from 192.168.100.12 to 192.168.000.0/16 lookup main priority 100
         ip rule del from 192.168.100.12 table 100 priority 200
         ip rule del fwmark 42 table 100
+        ip -6 rule del from fc00::3 table 100
       '';
       
       peers = [
           {
             publicKey = "hYbb2NQKB0g2RefngdHl3bfaLImUuzeVIv2i1VCVIlQ=";
             allowedIPs = [
+              "::/0"
               "0.0.0.0/0"
             ];
             endpoint = "104.193.135.196:51819";

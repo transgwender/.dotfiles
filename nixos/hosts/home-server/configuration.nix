@@ -23,7 +23,7 @@
       ../../modules/vpn.nix
       ../../modules/mealie.nix
       # ../../modules/kimmy.nix
-      (builtins.fetchGit { url = "ssh://git@github.com/transgwender/media-server-config.git"; ref = "main"; rev = "1ffa3fefb0b0194795cbebbeb0b496052face06e"; }).outPath
+      (builtins.fetchGit { url = "ssh://git@github.com/transgwender/media-server-config.git"; ref = "main"; rev = "2eb803dc6e336a097bb0abea44201c81aeb402c3"; }).outPath
 
       ../../containers/blahaj-bot.nix
       ../../containers/streemtech2obs.nix

@@ -16,11 +16,11 @@
   };
 
   networking.firewall = {
-    allowedUDPPorts = [ 53 51820 51819 ];
+    allowedUDPPorts = [ 53 51820 51819 2049 ];
     checkReversePath = "loose";
   };
 
-  networking.nameservers = [ "10.64.0.1" ];
+  networking.nameservers = [ "172.16.0.1" ];
 
   boot.kernel.sysctl = {
     "net.ipv4.ip_forward" = 1;
@@ -65,10 +65,10 @@
   networking.wg-quick.interfaces = {
     mv0 = {
       address = [
-        "fc00:bbbb:bbbb:bb01::6:52c/128"
-        "10.69.5.45/32"
+        "fd00:4956:504e:ffff::ac1c:e371/128"
+        "172.28.227.113/32"
       ];
-      dns = [ "10.64.0.1" ];
+      dns = [ "172.16.0.1" ];
       # listenPort = 51819;
       
       privateKeyFile = "${config.age.secrets.vpn-key.path}";
@@ -99,12 +99,12 @@
       
       peers = [
           {
-            publicKey = "hYbb2NQKB0g2RefngdHl3bfaLImUuzeVIv2i1VCVIlQ=";
+            publicKey = "lXawKqHosFOoc9kqAZwun9Yk3VrPN7vmG/JuQm4kvx0=";
             allowedIPs = [
               "::/0"
               "0.0.0.0/0"
             ];
-            endpoint = "104.193.135.196:51820";
+            endpoint = "104.193.135.231:2049";
             persistentKeepalive = 25;
           }
       ];

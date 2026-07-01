@@ -69,7 +69,7 @@
         "10.69.5.45/32"
       ];
       dns = [ "10.64.0.1" ];
-      listenPort = 51819;
+      # listenPort = 51819;
       
       privateKeyFile = "${config.age.secrets.mullvad-key.path}";
       table = "100";
@@ -104,7 +104,7 @@
               "::/0"
               "0.0.0.0/0"
             ];
-            endpoint = "104.193.135.196:51819";
+            endpoint = "104.193.135.196:51820";
             persistentKeepalive = 25;
           }
       ];

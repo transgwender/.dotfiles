@@ -44,6 +44,8 @@
     inputs.agenix.packages."${system}".default
     copyparty
     mealie
+    llama-cpp
+    speedtest-cli
   ];
 
   # Enable CUPS to print documents.

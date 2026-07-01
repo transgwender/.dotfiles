@@ -22,7 +22,8 @@
       ../../modules/timetagger.nix
       ../../modules/mullvad.nix
       ../../modules/mealie.nix
-      (builtins.fetchGit { url = "ssh://git@github.com/transgwender/media-server-config.git"; ref = "main"; rev = "890d75d3a400b8b2fb5dc535b1f4e490b6b3e8fc"; }).outPath
+      # ../../modules/kimmy.nix
+      (builtins.fetchGit { url = "ssh://git@github.com/transgwender/media-server-config.git"; ref = "main"; rev = "1ffa3fefb0b0194795cbebbeb0b496052face06e"; }).outPath
 
       ../../containers/blahaj-bot.nix
       ../../containers/streemtech2obs.nix

@@ -146,7 +146,7 @@
     file = ./../secrets/robotgirl-server-interface-config.age;
   };
 
-  age.secrets.mullvad-key = {
-    file = ./../secrets/mullvad-key.age;
+  age.secrets.vpn-key = {
+    file = ./../secrets/vpn-key.age;
   };
 }

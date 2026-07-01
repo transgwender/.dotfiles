@@ -20,5 +20,5 @@ in
   "robotgirl-server-interface-config.age".publicKeys = [ system-home jasmine ];
   "blahaj-bot-config.age".publicKeys = [ system-home jasmine ];
   "devhaj-bot-config.age".publicKeys = [ system-home jasmine ];
-  "mullvad-key.age".publicKeys = [ system-home jasmine ];
+  "vpn-key.age".publicKeys = [ system-home jasmine ];
 }

@@ -71,7 +71,7 @@
       dns = [ "10.64.0.1" ];
       # listenPort = 51819;
       
-      privateKeyFile = "${config.age.secrets.mullvad-key.path}";
+      privateKeyFile = "${config.age.secrets.vpn-key.path}";
       table = "100";
 
       postUp = ''

@@ -6,16 +6,16 @@
 
   networking.nftables = {
     ruleset = ''
-      table inet mullvad-nat {
+      table inet vpn-nat {
         chain postrouting {
           type nat hook postrouting priority 100; policy accept;
-          iifname "ve-mullvad-vpn" oifname "mv0" counter masquerade
+          iifname "ve-vpn" oifname "mv0" counter masquerade
         }
       }
     '';
   };
 
-  containers.mullvad-vpn = {
+  containers.vpn = {
     autoStart = true;
     privateNetwork = true;
     hostAddress = "192.168.100.10";

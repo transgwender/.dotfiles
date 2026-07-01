@@ -20,7 +20,7 @@
       ../../modules/storage.nix
       # ../../modules/minecraft.nix
       ../../modules/timetagger.nix
-      ../../modules/mullvad.nix
+      ../../modules/vpn.nix
       ../../modules/mealie.nix
       # ../../modules/kimmy.nix
       (builtins.fetchGit { url = "ssh://git@github.com/transgwender/media-server-config.git"; ref = "main"; rev = "1ffa3fefb0b0194795cbebbeb0b496052face06e"; }).outPath
